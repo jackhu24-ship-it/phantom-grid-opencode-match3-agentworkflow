@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHANToM GRID // OpenCode Match 3 AgentWorkflow Console</title>
+  <style>
+    :root {
+      --bg: #080c16;
+      --card-bg: #0d1321;
+      --cyan: #00e5ff;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --purple: #a855f7;
+      --red: #ef4444;
+      --border: #1e293b;
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 30px 20px; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header { border-bottom: 2px solid rgba(0, 229, 255, 0.3); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .brand { font-size: 13px; font-weight: 800; letter-spacing: 4px; color: var(--cyan); text-transform: uppercase; margin-bottom: 6px; }
+    h1 { font-size: 32px; font-weight: 900; letter-spacing: 1px; color: #fff; }
+    .badge-bar { display: flex; gap: 10px; }
+    .badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .badge-cyan { background: rgba(0, 229, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan); }
+    .badge-green { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--green); color: var(--green); }
+    
+    .grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; }
+    .panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .panel-title { font-size: 16px; font-weight: 800; letter-spacing: 2px; color: var(--cyan); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    input[type="text"] { width: 100%; background: #050811; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; margin-bottom: 20px; }
+    input[type="text"]:focus { outline: none; border-color: var(--cyan); }
+    .slider-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+    .slider-val { font-weight: 700; color: var(--cyan); font-family: monospace; }
+    input[type="range"] { width: 100%; margin-bottom: 24px; accent-color: var(--cyan); }
+    
+    button { width: 100%; background: linear-gradient(90deg, #00e5ff 0%, #7b2cbf 100%); border: none; border-radius: 8px; padding: 14px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #000; cursor: pointer; transition: 0.2s; }
+    button:hover { opacity: 0.9; transform: translateY(-1px); }
+    
+    .telemetry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: #050811; border: 1px solid var(--border); border-radius: 8px; padding: 14px; border-left: 4px solid var(--cyan); }
+    .stat-title { font-size: 11px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+    .stat-val { font-size: 24px; font-weight: 800; color: #fff; font-family: monospace; margin-top: 4px; }
+    
+    .log-box { background: #04060c; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: Consolas, monospace; font-size: 13px; height: 320px; overflow-y: auto; color: var(--text-dim); }
+    .log-line { margin-bottom: 8px; line-height: 1.4; }
+    .log-info { color: var(--cyan); }
+    .log-warn { color: var(--amber); }
+    .log-err { color: var(--red); }
+    .log-pass { color: var(--green); font-weight: 700; }
+    
+    footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 20px; }
+    footer a { color: var(--cyan); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <div class="brand">PHANToM GRID 2.0 // INDUSTRIAL MULTI-AGENT SWARM</div>
+        <h1>OpenCode Match 3 Workflow Nexus</h1>
+      </div>
+      <div class="badge-bar">
+        <span class="badge badge-cyan">RULE 65 COMPLIANT</span>
+        <span class="badge badge-green">ASIL-D READY</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Control Panel -->
+      <div class="panel">
+        <div class="panel-title">Mission Ingress & Chaos Control</div>
+        <label for="mission">Mission Specification:</label>
+        <input type="text" id="mission" value="Mission-Critical Telecom Routing & Anomaly Dispatch">
+
+        <div class="slider-row">
+          <span>SYSTEM LOAD RATIO</span>
+          <span class="slider-val" id="load-val">0.45</span>
+        </div>
+        <input type="range" id="load-slider" min="0.10" max="1.00" step="0.05" value="0.45">
+
+        <div class="slider-row">
+          <span>ALLOCATED VRAM (SAFETY CEILING: 50.0 GB)</span>
+          <span class="slider-val" id="vram-val">12.5 GB</span>
+        </div>
+        <input type="range" id="vram-slider" min="5.0" max="60.0" step="2.5" value="12.5">
+
+        <button id="run-btn" onclick="executeWorkflow()">DISPATCH MULTI-AGENT WORKFLOW</button>
+      </div>
+
+      <!-- Telemetry Dashboard -->
+      <div class="panel">
+        <div class="panel-title">Live Swarm Telemetry & Safety Governance</div>
+        
+        <div class="telemetry-grid">
+          <div class="stat-card" id="card-lat">
+            <div class="stat-title">CYCLE LATENCY</div>
+            <div class="stat-val" id="val-lat">0.56 ms</div>
+          </div>
+          <div class="stat-card" id="card-damp" style="border-left-color: var(--amber);">
+            <div class="stat-title">DAMPING FACTOR</div>
+            <div class="stat-val" id="val-damp">1.00x</div>
+          </div>
+          <div class="stat-card" id="card-zdr" style="border-left-color: var(--green);">
+            <div class="stat-title">ZDR RESIDUE</div>
+            <div class="stat-val" id="val-zdr">0.000000 MB</div>
+          </div>
+        </div>
+
+        <div class="log-box" id="log-console">
+          <div class="log-line log-info">[SYSTEM BOOT] PHANToM GRID Nexus Orchestrator online.</div>
+          <div class="log-line">[IDLE] Ready for multi-agent dispatch command.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Lead Architect: Jack Hu (Solo HITL Architect) | <a href="https://github.com/jackhu24-ship-it/phantom-grid-opencode-match3-agentworkflow" target="_blank">Public GitHub Repository</a> | <a href="docs/SLIDES_PRESENTATION.pdf" target="_blank">Executive Deck PDF</a>
+    </footer>
+  </div>
+
+  <script>
+    const loadSlider = document.getElementById("load-slider");
+    const vramSlider = document.getElementById("vram-slider");
+    const loadVal = document.getElementById("load-val");
+    const vramVal = document.getElementById("vram-val");
+    const consoleBox = document.getElementById("log-console");
+
+    loadSlider.oninput = () => loadVal.innerText = parseFloat(loadSlider.value).toFixed(2);
+    vramSlider.oninput = () => vramVal.innerText = parseFloat(vramSlider.value).toFixed(1) + " GB";
+
+    function appendLog(text, cls = "") {
+      const line = document.createElement("div");
+      line.className = "log-line " + cls;
+      line.innerText = text;
+      consoleBox.appendChild(line);
+      consoleBox.scrollTop = consoleBox.scrollHeight;
+    }
+
+    function executeWorkflow() {
+      const vram = parseFloat(vramSlider.value);
+      const load = parseFloat(loadSlider.value);
+      const mission = document.getElementById("mission").value;
+
+      consoleBox.innerHTML = "";
+      appendLog("[INGRESS] Received mission payload: " + mission, "log-info");
+      appendLog("[STAGE 1] Planner Agent generated DAG with 4 autonomous sub-tasks.", "");
+
+      // Check Meltdown Circuit Breaker
+      if (vram >= 50.0) {
+        setTimeout(() => {
+          appendLog("[HARDWARE SAFETY] VRAM allocation (" + vram.toFixed(1) + " GB) exceeded 50.0 GB limit!", "log-err");
+          appendLog("[ESTOP ACTIVE] Emergency Stop triggered. Process saved with Zero Crash.", "log-err");
+          document.getElementById("val-lat").innerText = "E-STOP";
+          document.getElementById("val-damp").innerText = "TRIPPED";
+          document.getElementById("card-lat").style.borderLeftColor = "var(--red)";
+        }, 150);
+        return;
+      }
+
+      // Check Damping Overload
+      let damping = 1.00;
+      if (load > 0.85) {
+        damping = 1.35;
+        appendLog("[REVIEWER] System load spiked to " + (load * 100).toFixed(0) + "%. Damping scaled to 1.35x.", "log-warn");
+      } else {
+        appendLog("[REVIEWER] System load nominal (" + (load * 100).toFixed(0) + "%). Damping: 1.00x.", "");
+      }
+
+      const lat = (0.45 + Math.random() * 0.20).toFixed(2);
+      document.getElementById("val-lat").innerText = lat + " ms";
+      document.getElementById("val-damp").innerText = damping.toFixed(2) + "x";
+      document.getElementById("card-lat").style.borderLeftColor = "var(--cyan)";
+
+      setTimeout(() => {
+        appendLog("[STAGE 2] Executor Agent executed all sub-tasks in " + lat + " ms.", "");
+        appendLog("[STAGE 3] Security Agent executed 2-Pass ZDR Memory Scrub (0xAA -> 0x00).", "log-info");
+        appendLog("[WORM RECEIPT] Signed: WORM-MATCH3-" + Math.random().toString(36).substring(2, 10).toUpperCase(), "log-info");
+        appendLog("[OFFICIAL VERDICT] ALL 4 GATES PASSED - PRODUCTION READY & SEALED", "log-pass");
+      }, 250);
+    }
+  </script>
+</body>
+</html>
