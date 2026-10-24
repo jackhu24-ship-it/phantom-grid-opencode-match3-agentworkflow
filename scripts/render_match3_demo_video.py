@@ -294,13 +294,15 @@ def render_frame(act_data: dict, act_num: int, total_acts: int, cur_sent_idx: in
         if is_active:
             draw.text((right_x2 - 120, cy1 + 20), "[ACTIVE]", font=get_font(14), fill=(0, 229, 255))
 
-    # Bottom Teleprompter Safe Area (Height: 180px, strictly outside collision)
-    sub_y1, sub_y2 = 860, 1040
-    draw.rectangle([40, sub_y1, WIDTH - 40, sub_y2], fill=(11, 15, 25), outline=(0, 229, 255), width=2)
+    # Bottom Teleprompter Safe Area (Height: 205px, strictly outside collision)
+    sub_y1, sub_y2 = 835, 1040
+    draw.rectangle([30, sub_y1, WIDTH - 30, sub_y2], fill=(11, 15, 25), outline=(0, 229, 255), width=2)
     
-    # Speaker Tag & Status
-    draw.text((60, sub_y1 + 14), "▶ [AI NARRATOR] VERBATIM SPEECH SYNCHRONIZED (PHASE-LOCKED)", font=get_font(16), fill=(245, 158, 11))
-    draw.text((WIDTH - 350, sub_y1 + 14), f"AUDIO TRACK: {VOICE_NAME}", font=get_mono_font(13), fill=(148, 163, 184))
+    # 1. 橙色字體: 大小 25, 起始座標 (40, 854)
+    draw.text((40, 854), "▶ [AI NARRATOR] VERBATIM SPEECH SYNCHRONIZED (PHASE-LOCKED)", font=get_font(25), fill=(245, 158, 11))
+    
+    # 2. 右邊上面灰色字體: 大小 20, 起始座標 (40, 854)
+    draw.text((40, 854), f"AUDIO TRACK: {VOICE_NAME}", font=get_mono_font(20), fill=(148, 163, 184))
 
     # Single-Line 42pt Subtitle (Rule 65 Supreme Typography Standard - Zero Split)
     sub_font = get_font(42)
@@ -311,10 +313,10 @@ def render_frame(act_data: dict, act_num: int, total_acts: int, cur_sent_idx: in
         # Auto-adjust if exceeding 1800px boundary
         scale_size = int(42 * (WIDTH - 120) / txt_w)
         sub_font = get_font(max(32, scale_size))
-    draw.text((60, sub_y1 + 65), cur_sentence_text, font=sub_font, fill=(255, 255, 255))
+    draw.text((60, 915), cur_sentence_text, font=sub_font, fill=(255, 255, 255))
 
-    # Commander Verification Footer
-    draw.text((60, sub_y1 + 130), "Solo Architect: Commander Jack Hu | PHANToM GRID Sovereign Multi-Agent Architecture", font=get_font(17), fill=(148, 163, 184))
+    # 3. 左邊灰色字體: 大小 28, 起始座標 (60, 975)
+    draw.text((60, 975), "Solo Architect: Commander Jack Hu | PHANToM GRID Sovereign Multi-Agent Architecture", font=get_font(28), fill=(148, 163, 184))
 
     img.save(frame_path)
 
