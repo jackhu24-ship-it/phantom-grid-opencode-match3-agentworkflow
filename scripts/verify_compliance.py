@@ -44,6 +44,15 @@ def check_deliverable_05_slides():
     assert len(reader.pages) == 10, f"Deliverable 05: Expected 10 slides, got {len(reader.pages)}"
     print("[PASS] Deliverable 05: 10-Page Slides PDF Verified")
 
+def check_deliverable_06_video():
+    video = BASE_DIR / "assets" / "demo_video.mp4"
+    assert video.exists(), "Deliverable 06: demo_video.mp4 missing"
+    cmd = ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(video)]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    dur = float(res.stdout.strip())
+    assert 120.0 <= dur <= 300.0, f"Deliverable 06: Duration {dur:.2f}s outside 2:00-5:00 window"
+    print(f"[PASS] Deliverable 06: Demo Video Verified ({dur:.2f}s / Golden Zone)")
+
 def check_deliverable_07_repo_assets():
     license_file = BASE_DIR / "LICENSE"
     assert license_file.exists(), "Deliverable 07: LICENSE missing"
@@ -68,10 +77,11 @@ def main():
     check_deliverable_03_tags()
     check_deliverable_04_cover_image()
     check_deliverable_05_slides()
+    check_deliverable_06_video()
     check_deliverable_07_repo_assets()
     check_deliverable_08_tests()
     print("-" * 80)
-    print("VERDICT: [ 7/7 ACTIVE DELIVERABLES PASSED - RULE 65 COMPLIANT ]")
+    print("VERDICT: [ 8/8 FULL DELIVERABLES PASSED - RULE 65 100% COMPLIANT ]")
     print("=" * 80)
 
 if __name__ == "__main__":
