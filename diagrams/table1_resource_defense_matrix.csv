@@ -1,0 +1,6 @@
+metric_name,nominal_standard,warning_threshold,hard_estop_redline,defense_action_escalation,asil_level
+GPU VRAM,<= 32.0 GB,45.0 GB,>= 50.0 GB,HARD_MELTDOWN Tripwire & Context Flush,ASIL-D
+End-to-End Latency,<= 5.0 ms,16.66 ms (60 FPS),> 50.0 ms,1.35x Geometric Rigidity Damping,ASIL-B
+Actuator Torque,<= 45.0 Nm,70.0 Nm,> 85.0 Nm,Instant Relay Decouple & Blackbox Log,ASIL-D
+Zero Data Remanence,0.000000 MB,> 0.0001 MB,Any Leak Detected,2-Pass (0xAA -> 0x00) Physical Overwrite,ASIL-D
+WORM Replay Immunity,Valid Registration,Duplicate Nonce,Ghost Injection,Intercept & Raise SecurityError,ASIL-D
