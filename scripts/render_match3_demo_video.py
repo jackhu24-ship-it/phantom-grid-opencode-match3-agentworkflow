@@ -302,15 +302,16 @@ def render_frame(act_data: dict, act_num: int, total_acts: int, cur_sent_idx: in
     draw.text((60, sub_y1 + 14), "▶ [AI NARRATOR] VERBATIM SPEECH SYNCHRONIZED (PHASE-LOCKED)", font=get_font(16), fill=(245, 158, 11))
     draw.text((WIDTH - 350, sub_y1 + 14), f"AUDIO TRACK: {VOICE_NAME}", font=get_mono_font(13), fill=(148, 163, 184))
 
-    # Dynamic Multi-Line Subtitle with Zero Overlap
-    sub_font = get_font(26)
-    lines = textwrap.wrap(cur_sentence_text, width=82)
-    if len(lines) == 1:
-        draw.text((60, sub_y1 + 58), lines[0], font=sub_font, fill=(255, 255, 255))
-    else:
-        draw.text((60, sub_y1 + 48), lines[0], font=sub_font, fill=(255, 255, 255))
-        if len(lines) > 1:
-            draw.text((60, sub_y1 + 84), lines[1], font=sub_font, fill=(255, 255, 255))
+    # Single-Line 42pt Subtitle (Rule 65 Supreme Typography Standard - Zero Split)
+    sub_font = get_font(42)
+    # Ensure text never overflows screen edge
+    bbox = sub_font.getbbox(cur_sentence_text)
+    txt_w = bbox[2] - bbox[0]
+    if txt_w > (WIDTH - 120):
+        # Auto-adjust if exceeding 1800px boundary
+        scale_size = int(42 * (WIDTH - 120) / txt_w)
+        sub_font = get_font(max(32, scale_size))
+    draw.text((60, sub_y1 + 65), cur_sentence_text, font=sub_font, fill=(255, 255, 255))
 
     # Commander Verification Footer
     draw.text((60, sub_y1 + 130), "Solo Architect: Commander Jack Hu | PHANToM GRID Sovereign Multi-Agent Architecture", font=get_font(17), fill=(148, 163, 184))
