@@ -301,8 +301,12 @@ def render_frame(act_data: dict, act_num: int, total_acts: int, cur_sent_idx: in
     # 1. 橙色字體: 大小 25, 起始座標 (40, 854)
     draw.text((40, 854), "▶ [AI NARRATOR] VERBATIM SPEECH SYNCHRONIZED (PHASE-LOCKED)", font=get_font(25), fill=(245, 158, 11))
     
-    # 2. 右邊上面灰色字體: 大小 20, 起始座標 (40, 854)
-    draw.text((40, 854), f"AUDIO TRACK: {VOICE_NAME}", font=get_mono_font(20), fill=(148, 163, 184))
+    # 2. 右邊上面灰色字體: 大小 20, 移至右上區塊 (X = 1464, Y = 854, 與左側橙色標頭對稱且完全不重疊)
+    mono_20 = get_mono_font(20)
+    audio_tag = f"AUDIO TRACK: {VOICE_NAME}"
+    bbox_rt = mono_20.getbbox(audio_tag)
+    w_rt = bbox_rt[2] - bbox_rt[0]
+    draw.text(((WIDTH - 60) - w_rt, 854), audio_tag, font=mono_20, fill=(148, 163, 184))
 
     # Single-Line 42pt Subtitle (Rule 65 Supreme Typography Standard - Zero Split)
     sub_font = get_font(42)
