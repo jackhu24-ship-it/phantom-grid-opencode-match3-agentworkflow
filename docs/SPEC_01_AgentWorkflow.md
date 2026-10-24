@@ -1,7 +1,7 @@
 # SPEC_01 :: OpenCode Match 3 AgentWorkflow Technical Whitepaper
 > Full Spec-First Architecture Whitepaper (Rule 65 & v6.1.0 Sovereign Constitution)
 
-## 1. System Overall Topology Diagram (圖一：系統總體架構與拓撲圖)
+## 1. System Overall Topology Diagram (Diagram 01: System Architecture & Topology)
 ```mermaid
 graph TD
     subgraph IngressLayer ["Ingress & Gateway Layer"]
@@ -25,7 +25,7 @@ graph TD
     end
 ```
 
-## 2. Full Lifecycle Sequence Diagram (圖二：全生命週期時序圖)
+## 2. Full Lifecycle Sequence Diagram (Diagram 02: Full Lifecycle Message Sequence)
 ```mermaid
 sequenceDiagram
     autonumber
@@ -52,7 +52,7 @@ sequenceDiagram
     Vault-->>Commander: Issue Immutable WORM Receipt (PASS)
 ```
 
-## 3. Dynamic Values & Damping State Diagram (圖三：動態數值與阻尼狀態圖)
+## 3. Dynamic Values & Damping State Diagram (Diagram 03: Dynamic Values & Damping FSM)
 ```mermaid
 stateDiagram-v2
     [*] --> STATE_IDLE: System Boots & Hardware Check
@@ -72,7 +72,7 @@ stateDiagram-v2
     STATE_ZDR_PURGE --> [*]: WORM Receipt Signed & Memory Zeroed
 ```
 
-## 4. Security Boundary & Meltdown Diagram (圖四：安全邊界、顯存熔斷與排版隔離圖)
+## 4. Security Boundary & Meltdown Diagram (Diagram 04: Security Boundary & Hard Meltdown)
 ```mermaid
 graph LR
     subgraph NominalZone ["Zone 0: Nominal Operating Zone"]
@@ -94,12 +94,12 @@ graph LR
     CautionZone --> HardMeltdownZone
 ```
 
-## 5. System Boundary & Defense Matrix (表一：系統資源調配、臨界邊界與防禦矩陣表)
+## 5. System Boundary & Defense Matrix (Table 01: System Resource Quota, Latency Budget & Defense Matrix)
 
-| 關鍵指標 (Key Metric) | 標稱標準 (Nominal) | 警報臨界點 (Warning) | 硬熔斷紅線 (Hard E-STOP) | 防禦阻尼 / 熔斷機制 (Defense SOP) | ASIL 等級 |
+| Key Metric | Nominal | Warning Threshold | Hard E-STOP Redline | Defense Action & Escalation Mechanism | ASIL Level |
 | :--- | :--- | :--- | :--- | :--- | :---: |
-| **全域顯存佔用 (VRAM)** | <= 32.0 GB | 45.0 GB | >= 50.0 GB | 立即觸發 HARD_MELTDOWN 鎖死 | ASIL-D |
-| **端到端管線延遲 (E2E)** | <= 5.0 ms | 16.66 ms (60 FPS) | > 50.0 ms | 自動切換 1.35x 平滑阻尼 | ASIL-B |
-| **關節過載扭矩 (Torque)** | <= 45.0 Nm | 70.0 Nm | > 85.0 Nm | 抱閘斷電並寫入黑盒子 | ASIL-D |
-| **記憶體殘留清理 (ZDR)** | 0.000000 MB | > 0.0001 MB | 任何弱引用未釋放 | 2-Pass (0xAA -> 0x00) 雙重覆寫 | ASIL-D |
-| **WORM 存證唯一性 (Nonce)** | 嚴格單調遞增 | 重複 Nonce 請求 | 雜湊值碰撞衝突 | 重放攻擊即刻攔截拋出 SecurityError | ASIL-D |
+| **GPU Memory (VRAM)** | &le; 32.0 GB | 45.0 GB | &ge; 50.0 GB | Immediate HARD_MELTDOWN hardware tripwire &amp; context flush | ASIL-D |
+| **End-to-End Latency (E2E)** | &le; 5.0 ms | 16.66 ms (60 FPS) | &gt; 50.0 ms | Activate 1.35x geometric rigidity damping scalar | ASIL-B |
+| **Actuator Torque** | &le; 45.0 Nm | 70.0 Nm | &gt; 85.0 Nm | Instant physical relay decouple and blackbox audit logging | ASIL-D |
+| **Zero Data Remanence (ZDR)** | 0.000000 MB | &gt; 0.0001 MB | Any Remanence Breach | 2-Pass (0xAA -&gt; 0x00) bitwise physical memory purge | ASIL-D |
+| **WORM Replay Immunity (Nonce)** | Valid Registration | Duplicate Nonce Request | Ghost Injection Detected | Intercept and raise SecurityError with tamper alarm | ASIL-D |

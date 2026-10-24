@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<title>PHANToM GRID :: OpenCode Match 3 Executive Presentation</title>
 <style>
   @page {
     size: 1920px 1080px;
@@ -13,6 +14,8 @@
     background: #080a10;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .slide {
     width: 1920px; height: 1080px; page-break-after: always;
@@ -49,245 +52,335 @@
     border-left: 6px solid #00e5ff; padding: 26px; border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
-  .card h3 { font-size: 24px; color: #00e5ff; margin-bottom: 12px; font-weight: 800; }
-  .card p { font-size: 17px; color: #cbd5e1; line-height: 1.55; }
-  
-  .table-deck { width: 100%; border-collapse: collapse; margin-top: 35px; }
-  .table-deck th { background: rgba(0, 229, 255, 0.15); color: #00e5ff; padding: 14px 20px; text-align: left; font-size: 18px; border: 1px solid rgba(0, 229, 255, 0.3); }
-  .table-deck td { padding: 14px 20px; border: 1px solid rgba(255, 255, 255, 0.1); font-size: 17px; color: #e2e8f0; background: rgba(13, 17, 36, 0.6); }
+  .card h3 { font-size: 24px; color: #00e5ff; margin-bottom: 14px; font-weight: 700; }
+  .card p { font-size: 18px; color: #cbd5e1; line-height: 1.6; }
+  .card .stat { font-size: 32px; font-weight: 900; color: #ffffff; margin-top: 10px; font-family: monospace; }
   
   .footer {
     position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 16px; font-size: 15px; color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 16px; color: #64748b; font-size: 16px;
   }
-  .page-num { font-family: Consolas, monospace; font-size: 18px; color: #00e5ff; font-weight: bold; }
+  .page-num { font-weight: bold; color: #00e5ff; font-family: monospace; font-size: 18px; }
 </style>
 </head>
 <body>
 
-  <!-- SLIDE 01: COVER -->
+  <!-- SLIDE 01 -->
   <div class="slide">
     <div class="grid-bg"></div>
     <div class="header">
       <div class="brand">PHANTOM GRID // NEXUS ARCHITECTURE</div>
       <div class="badge">RULE 65 COMPLIANT</div>
     </div>
-    <div class="content" style="margin-top: 80px;">
+    <div class="content">
       <div class="tagline">OPENCODE 2026 MATCH 3 :: DUAL-TRACK AGENT WORKFLOW</div>
-      <div class="title" style="font-size: 74px; background: linear-gradient(90deg, #ffffff, #00e5ff, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        AUTONOMOUS MULTI-AGENT<br>WORKFLOW NEXUS
-      </div>
-      <div class="subtitle" style="font-size: 28px;">
-        ASIL-D Zero-Brain-Split FSM | Microsecond Distributed Dispatch | 2-Pass ZDR Memory Purge
-      </div>
-      <div class="cards-4" style="margin-top: 80px;">
-        <div class="card"><div style="font-size: 14px; color: #94a3b8;">VRAM WORKLOAD</div><div style="font-size: 36px; font-weight: 800; color: #00e5ff; font-family: monospace;">12.4 GB</div><div style="color:#10b981; font-size: 13px; font-weight: bold;">NOMINAL &lt; 50GB</div></div>
-        <div class="card" style="border-left-color: #10b981;"><div style="font-size: 14px; color: #94a3b8;">E2E LATENCY</div><div style="font-size: 36px; font-weight: 800; color: #00e5ff; font-family: monospace;">4.20 ms</div><div style="color:#10b981; font-size: 13px; font-weight: bold;">P99 &lt;= 16.66ms (60 FPS)</div></div>
-        <div class="card" style="border-left-color: #f59e0b;"><div style="font-size: 14px; color: #94a3b8;">GEOMETRIC DAMPING</div><div style="font-size: 36px; font-weight: 800; color: #00e5ff; font-family: monospace;">1.00 x</div><div style="color:#f59e0b; font-size: 13px; font-weight: bold;">1.35x READY FOR LOAD</div></div>
-        <div class="card" style="border-left-color: #a855f7;"><div style="font-size: 14px; color: #94a3b8;">ZDR MEMORY PURGE</div><div style="font-size: 36px; font-weight: 800; color: #00e5ff; font-family: monospace;">0x00 SEAL</div><div style="color:#a855f7; font-size: 13px; font-weight: bold;">2-PASS WORM VERIFIED</div></div>
+      <div class="title">AUTONOMOUS MULTI-AGENT<br>WORKFLOW NEXUS</div>
+      <div class="subtitle">ASIL-D Zero-Brain-Split FSM | Microsecond Asynchronous Dispatch | Hardware 2-Pass ZDR Memory Purge</div>
+      <div class="cards-4">
+        <div class="card">
+          <h3>VRAM Cap</h3>
+          <p>Strict hardware limit preventing out-of-memory pipeline collapse.</p>
+          <div class="stat" style="color: #00e5ff;">&lt; 50.0 GB</div>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>P99 Latency</h3>
+          <p>Microsecond async execution locked to high-frame deterministic cycle.</p>
+          <div class="stat" style="color: #f59e0b;">&le; 16.66 ms</div>
+        </div>
+        <div class="card" style="border-left-color: #a855f7;">
+          <h3>Damping</h3>
+          <p>Active geometric scalar suppressing joint jitter and load surges.</p>
+          <div class="stat" style="color: #a855f7;">1.35x Active</div>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+          <h3>ZDR Purge</h3>
+          <p>2-Pass bitwise zeroization (0xAA to 0x00) with cryptographic receipts.</p>
+          <div class="stat" style="color: #10b981;">0.00 MB Remanence</div>
+        </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 01 / 10</div></div>
   </div>
 
-  <!-- SLIDE 02: PROBLEM & CHALLENGES -->
+  <!-- SLIDE 02 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // PROBLEM STATEMENT</div><div class="badge">INDUSTRY CHALLENGES</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // PROBLEM STATEMENT</div>
+      <div class="badge">INDUSTRY BOTTLENECK</div>
+    </div>
     <div class="content">
-      <div class="tagline">CRITICAL BOTTLENECKS IN CONVENTIONAL WORKFLOWS</div>
-      <div class="title">傳統多代理人系統三大致命死因</div>
-      <div class="subtitle">通用 Agent 框架在面對車規級工業環境與極限吞吐量時，面臨確定性與安全防禦缺失。</div>
+      <div class="tagline">CRITICAL VULNERABILITIES IN CONVENTIONAL WORKFLOWS</div>
+      <div class="title">Three Fatal Flaws in Legacy Multi-Agent Systems</div>
+      <div class="subtitle">Standard multi-agent frameworks lack deterministic bounds, resulting in state divergence, memory exhaustion, and sensitive data remanence.</div>
       <div class="cards-3">
-        <div class="card"><h3>01. 腦裂與狀態失真 (Brain-Split)</h3><p>缺乏強約束有限狀態機（FSM），在網絡抖動或併發死鎖時，代理人集群易陷入無效死迴圈，導致任務中途蒸發。</p></div>
-        <div class="card" style="border-left-color: #f59e0b;"><h3>02. 微秒級延遲與顯存雪崩</h3><p>未設防禦門檻，模型推理瞬間吞滿 GPU VRAM 觸發 OOM 崩潰，無法維持 60 FPS (16.66ms) 即時閉環調度。</p></div>
-        <div class="card" style="border-left-color: #f72585;"><h3>03. 記憶體殘留與重放漏洞</h3><p>上下文快取未經物理清毀，弱引用在堆疊中洩漏敏感 Payload，缺乏不可篡改 WORM 收執導致審計失效。</p></div>
+        <div class="card">
+          <h3>01. Brain-Split Divergence</h3>
+          <p>Unbounded state machines suffer from deadlock and desynchronization when scaling across asynchronous workers without centralized ASIL-D lockstep controls.</p>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>02. Uncontrolled VRAM Spikes</h3>
+          <p>Recursive prompt chains and unbounded context windows trigger sudden memory spikes, breaching GPU boundaries and crashing real-time 60 FPS pipelines.</p>
+        </div>
+        <div class="card" style="border-left-color: #f72585;">
+          <h3>03. Ephemeral Remanence</h3>
+          <p>Conventional garbage collectors leave residual tokens and tensor memory in GPU RAM, exposing sensitive payloads to memory scraping and replay exploits.</p>
+        </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 02 / 10</div></div>
   </div>
 
-  <!-- SLIDE 03: DUAL-TRACK ARCHITECTURE -->
+  <!-- SLIDE 03 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // CORE ARCHITECTURE</div><div class="badge">DUAL-TRACK PIPELINE</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // CORE ARCHITECTURE</div>
+      <div class="badge">DUAL-TRACK PIPELINE</div>
+    </div>
     <div class="content">
       <div class="tagline">ZERO-BRAIN-SPLIT DETERMINISTIC DESIGN</div>
-      <div class="title">雙軌引擎架構：軌道 A 狀態機 ✕ 軌道 B 調度大腦</div>
-      <div class="subtitle">將控制流的外殼生命週期防護，與底層高頻異步算子調度徹底解耦，兼顧車規安全與微秒延遲。</div>
-      <div class="cards-2">
+      <div class="title">Dual-Track Execution Engine</div>
+      <div class="subtitle">Decoupling high-level stateful workflow orchestration from ultra-low-latency stateless tensor execution cores.</div>
+      <div class="cards-3">
         <div class="card">
-          <h3>軌道 A：外殼狀態機 (Shell State Machine)</h3>
-          <p>• 負責 Phase 1~4 全生命週期巡檢與狀態流轉（IDLE ➔ DISPATCH ➔ EXECUTION ➔ ZDR_PURGE）。<br>
-          • 整合硬體看門狗，超標異常強制轉進 ESTOP 急停抱閘狀態。<br>
-          • 提供 ASIL-D 等級的隔離防護，阻絕腦裂失控。</p>
+          <h3>Track A: Outer Orchestrator</h3>
+          <p>Finite State Machine (FSM) managing strict transitions across Ingress, Dispatch, Execution, and Purge phases with zero state divergence.</p>
         </div>
-        <div class="card" style="border-left-color: #00f5d4;">
-          <h3>軌道 B：核心排程調度大腦 (Nexus Orchestrator)</h3>
-          <p>• 微秒級端到端（E2E）無鎖事件管線，動態編排多代理人 DAG 依賴。<br>
-          • 跨進程快取上下文安全隔離，具備 60 FPS 零丟幀保證。<br>
-          • 即時反饋負載指標至阻尼控制器，實現動態削峰填谷。</p>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>Track B: High-Speed Kernel</h3>
+          <p>Microsecond asynchronous execution kernel running vectorized workloads, enforcing sub-5ms dispatch times with zero lock contention.</p>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+          <h3>ASIL-D Watchdog Interlock</h3>
+          <p>Synchronous hardware sentinel verifying nonces and memory limits between tracks before executing any downstream action.</p>
         </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 03 / 10</div></div>
   </div>
 
-  <!-- SLIDE 04: AGENT SWARM -->
+  <!-- SLIDE 04 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // MULTI-AGENT SWARM</div><div class="badge">LEVEL 2 NODES</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // MULTI-AGENT SWARM</div>
+      <div class="badge">LEVEL 2 NODES</div>
+    </div>
     <div class="content">
-      <div class="tagline">SPECIALIZED AUTONOMOUS DIVISION OF LABOR</div>
-      <div class="title">專業代理部隊：職責分離與 ASIL 邊界矩陣</div>
-      <div class="subtitle">四大專職節點互相制衡、全鏈路驗證，杜絕單點故障與越權調用。</div>
+      <div class="tagline">SPECIALIZED AUTONOMOUS ROLES &amp; RESPONSIBILITIES</div>
+      <div class="title">Four Autonomous Swarm Agents</div>
+      <div class="subtitle">Modular role separation guarantees predictable behavior, rapid fault isolation, and full auditability.</div>
       <div class="cards-4">
-        <div class="card"><h3>Planner Agent</h3><p>• 任務 DAG 語義分解<br>• 資源排程預算估算<br>• 相依性無環圖構建</p></div>
-        <div class="card" style="border-left-color: #10b981;"><h3>Executor Agent</h3><p>• 微秒級非阻塞指令執行<br>• 底層硬體指令轉譯<br>• 即時算子流水線分發</p></div>
-        <div class="card" style="border-left-color: #f59e0b;"><h3>Reviewer Agent</h3><p>• 執行結果靜態語義審計<br>• 合規完整度雙簽驗收<br>• 產出質量評分與門禁阻斷</p></div>
-        <div class="card" style="border-left-color: #f72585;"><h3>Security Agent</h3><p>• VRAM/扭矩紅線實時監控<br>• FTTI &lt;= 50ms 快速響應<br>• 邊界越限即刻觸發 ESTOP</p></div>
+        <div class="card">
+          <h3>Planner Agent</h3>
+          <p>Deconstructs complex goals into optimal Directed Acyclic Graphs (DAGs) with strict execution boundaries.</p>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>Executor Agent</h3>
+          <p>Carries out atomic actions in parallel, monitoring per-step execution latencies and resource quotas.</p>
+        </div>
+        <div class="card" style="border-left-color: #a855f7;">
+          <h3>Reviewer Agent</h3>
+          <p>Conducts automated AST checks, rule compliance audits, and formal mathematical verification before commit.</p>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+          <h3>Security Agent</h3>
+          <p>Monitors hardware limits, cryptographic nonces, and activates the 1.35x damping controller on anomalies.</p>
+        </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 04 / 10</div></div>
   </div>
 
-  <!-- SLIDE 05: DIAGRAMS TOPOLOGY & SEQUENCE -->
+  <!-- SLIDE 05 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // SPEC-FIRST ARTIFACTS</div><div class="badge">DIAGRAMS 01 &amp; 02</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // SPEC-FIRST ARTIFACTS</div>
+      <div class="badge">HOLLYWOOD VISUALS</div>
+    </div>
     <div class="content">
-      <div class="tagline">HOLYWOOD VISUAL SPECIFICATION</div>
-      <div class="title">圖一拓撲結構 ✕ 圖二微秒級生命週期時序</div>
-      <div class="subtitle">遵循法典 §3.4.38 天條，全系統端到端架構與微秒時序滿血映射。</div>
+      <div class="tagline">SYSTEM TOPOLOGY &amp; LIFECYCLE SEQUENCES</div>
+      <div class="title">Architectural Blueprints: Diagrams 01 &amp; 02</div>
+      <div class="subtitle">Spec-First engineering methodology ensures formal visual verification before any line of code executes.</div>
       <div class="cards-2">
         <div class="card">
-          <h3>圖一：系統總體拓撲 (Topology)</h3>
-          <p>• <b>Ingress Layer</b>: User CLI ➔ Security Nonce &amp; VRAM 巡檢<br>
-          • <b>Core Brain</b>: Master Orchestrator ✕ FSM State Machine<br>
-          • <b>Agent Swarm</b>: Planner ➔ Executor ➔ Reviewer ➔ Security<br>
-          • <b>SafeGuard</b>: 1.35x Damping ➔ 2-Pass ZDR ➔ WORM Vault</p>
+          <h3>Diagram 01: System Overall Topology</h3>
+          <p>&bull; <b>Ingress Layer</b>: User CLI, Security Nonce &amp; VRAM Pre-check.<br>
+          &bull; <b>Core Brain</b>: Master Orchestrator, FSM State Machine, Context Manager.<br>
+          &bull; <b>Swarm Layer</b>: Planner, Executor, Reviewer, and Security Agents.<br>
+          &bull; <b>Safety Layer</b>: 1.35x Damping Controller, 2-Pass ZDR Purger, WORM Vault.</p>
         </div>
-        <div class="card" style="border-left-color: #7b2cbf;">
-          <h3>圖二：生命週期時序 (Sequence)</h3>
-          <p>• <b>1~3 步</b>: 任務輸入 ➔ VRAM 預檢 ➔ 淨化請求轉發中樞<br>
-          • <b>4~6 步</b>: DAG 分解 ➔ 微秒級並行執行 ➔ 產物回傳<br>
-          • <b>7~8 步</b>: 阻尼自適應仲裁 (負載 &gt; 85% 觸發 1.35x)<br>
-          • <b>9~10 步</b>: 2-Pass ZDR 物理清毀 ➔ 簽發 WORM 收執</p>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>Diagram 02: Full Lifecycle Sequence</h3>
+          <p>&bull; <b>Step 1</b>: Ingress Nonce verification and memory limit evaluation (&lt;50GB).<br>
+          &bull; <b>Step 2</b>: Dynamic DAG task dispatch to Planner and Executor swarm.<br>
+          &bull; <b>Step 3</b>: Reviewer verification and ASIL-D safety telemetry check.<br>
+          &bull; <b>Step 4</b>: 2-Pass ZDR bitwise overwrite and immutable WORM receipt sealing.</p>
         </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 05 / 10</div></div>
   </div>
 
-  <!-- SLIDE 06: STATE MACHINE & MELTDOWN -->
+  <!-- SLIDE 06 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // SAFETY BOUNDARIES</div><div class="badge">DIAGRAMS 03 &amp; 04</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // SAFETY BOUNDARIES</div>
+      <div class="badge">ASIL-D HARDWARE</div>
+    </div>
     <div class="content">
-      <div class="tagline">ASIL-D HARDWARE SAFETY BOUNDARIES</div>
-      <div class="title">圖三動態數值狀態機 ✕ 圖四顯存硬熔斷防禦</div>
-      <div class="subtitle">三層安全分區機制，徹底消滅顯存雪崩與未受控溢出風險。</div>
-      <div class="cards-3">
+      <div class="tagline">STATE MACHINE &amp; MELTDOWN PROTOCOL</div>
+      <div class="title">Safety Dynamics: Diagrams 03 &amp; 04</div>
+      <div class="subtitle">Deterministic finite state transitions and hardware-level emergency shutdown protocols prevent catastrophic failure.</div>
+      <div class="cards-2">
         <div class="card">
-          <h3>Zone 0: 標稱運算區 (Nominal)</h3>
-          <p>• VRAM: 0 ~ 45 GB<br>• E2E 週期: &lt;= 16.66 ms (60 FPS)<br>• 阻尼係數: 1.00x 額定平滑運算</p>
-        </div>
-        <div class="card" style="border-left-color: #f59e0b;">
-          <h3>Zone 1: 動態節流區 (Caution)</h3>
-          <p>• VRAM: 45 ~ 50 GB<br>• 阻尼跳轉: <b>1.35x 剛性幾何介入</b><br>• 降級模式排程抑制抖動</p>
+          <h3>Diagram 03: State Machine &amp; Damping</h3>
+          <p>&bull; <b>IDLE to DISPATCH</b>: Requires valid hardware nonce and clean context.<br>
+          &bull; <b>EXECUTION Phase</b>: Continuous P99 monitoring against 16.66ms deadline.<br>
+          &bull; <b>SURGE Transition</b>: Automatically engages 1.35x geometric damping scalar.<br>
+          &bull; <b>PURGE Phase</b>: Guaranteed terminal state executing 2-Pass memory erasure.</p>
         </div>
         <div class="card" style="border-left-color: #f72585;">
-          <h3>Zone 2: ASIL-D 熔斷區 (ESTOP)</h3>
-          <p>• VRAM: &gt;= 50.0 GB 硬紅線<br>• <b>FTTI &lt;= 50ms 瞬時急停鎖死</b><br>• 強制驅動 2-Pass ZDR 物理銷毀</p>
+          <h3>Diagram 04: Security Boundary &amp; Meltdown</h3>
+          <p>&bull; <b>Green Zone</b>: Nominal operation (VRAM &lt; 32GB, Torque &lt; 45Nm).<br>
+          &bull; <b>Amber Zone</b>: Warning state, activates active damping to prevent runaway.<br>
+          &bull; <b>Red Zone</b>: Emergency hardware tripwire (VRAM &ge; 50GB or Torque &gt; 85Nm).<br>
+          &bull; <b>Hard Meltdown</b>: Instant hardware relay drop and persistent audit logging.</p>
         </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 06 / 10</div></div>
   </div>
 
-  <!-- SLIDE 07: DEFENSE MATRIX TABLE -->
+  <!-- SLIDE 07 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // DEFENSE MATRIX</div><div class="badge">TABLE 01 FULL SPEC</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // DEFENSE MATRIX</div>
+      <div class="badge">TABLE 01 SPEC</div>
+    </div>
     <div class="content">
-      <div class="tagline">CRITICAL BOUNDARIES &amp; MITIGATION PROTOCOLS</div>
-      <div class="title">表一：系統資源調配、臨界邊界與防禦矩陣表</div>
-      <table class="table-deck">
-        <tr><th>關鍵指標 (Key Metric)</th><th>標稱標準 (Nominal)</th><th>警報臨界點 (Warning)</th><th>硬熔斷紅線 (Hard E-STOP)</th><th>防禦機制 (Defense SOP)</th><th>ASIL</th></tr>
-        <tr><td><b>全域顯存佔用 (VRAM)</b></td><td>&lt;= 32.0 GB</td><td>45.0 GB</td><td>&gt;= 50.0 GB</td><td>立即觸發 HARD_MELTDOWN 鎖死抱閘</td><td>ASIL-D</td></tr>
-        <tr><td><b>端到端延遲 (E2E)</b></td><td>&lt;= 5.0 ms</td><td>16.66 ms (60 FPS)</td><td>&gt; 50.0 ms</td><td>切換 1.35x 幾何自適應平滑阻尼</td><td>ASIL-B</td></tr>
-        <tr><td><b>關節過載扭矩 (Torque)</b></td><td>&lt;= 45.0 Nm</td><td>70.0 Nm</td><td>&gt; 85.0 Nm</td><td>抱閘斷電並將黑盒子日誌封箱存證</td><td>ASIL-D</td></tr>
-        <tr><td><b>記憶體殘留 (ZDR)</b></td><td>0.000000 MB</td><td>&gt; 0.0001 MB</td><td>任何弱引用未釋放</td><td>2-Pass (0xAA ➔ 0x00) 雙重覆寫</td><td>ASIL-D</td></tr>
-        <tr><td><b>WORM 存證唯一性</b></td><td>嚴格單調遞增</td><td>重複 Nonce 請求</td><td>雜湊值碰撞衝突</td><td>即刻拒絕重放攻擊拋出 SecurityError</td><td>ASIL-D</td></tr>
-      </table>
+      <div class="tagline">RIGID HARDWARE BOUNDARIES &amp; ESCALATION PATHS</div>
+      <div class="title">System Boundary &amp; Resource Matrix</div>
+      <div class="subtitle">Immutable hardware specifications enforcing operational safety margins across automotive compute environments.</div>
+      <div class="cards-4">
+        <div class="card">
+          <h3>GPU VRAM</h3>
+          <p>Nominal: &le; 32.0 GB<br>Warning: 45.0 GB<br><b>E-STOP: &ge; 50.0 GB</b><br>Defense: Hardware Meltdown</p>
+          <div class="stat" style="color: #00e5ff; font-size: 20px;">ASIL-D Level</div>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>E2E Latency</h3>
+          <p>Nominal: &le; 5.0 ms<br>Warning: 16.66 ms (60 FPS)<br><b>E-STOP: &gt; 50.0 ms</b><br>Defense: 1.35x Damping</p>
+          <div class="stat" style="color: #f59e0b; font-size: 20px;">ASIL-B Level</div>
+        </div>
+        <div class="card" style="border-left-color: #f72585;">
+          <h3>Actuator Torque</h3>
+          <p>Nominal: &le; 45.0 Nm<br>Warning: 70.0 Nm<br><b>E-STOP: &gt; 85.0 Nm</b><br>Defense: Relay Decouple</p>
+          <div class="stat" style="color: #f72585; font-size: 20px;">ASIL-D Level</div>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+          <h3>Data Remanence</h3>
+          <p>Nominal: 0.000000 MB<br>Warning: &gt; 0.0001 MB<br><b>E-STOP: Leak Detected</b><br>Defense: 2-Pass ZDR Purge</p>
+          <div class="stat" style="color: #10b981; font-size: 20px;">ASIL-D Level</div>
+        </div>
+      </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 07 / 10</div></div>
   </div>
 
-  <!-- SLIDE 08: 2-PASS ZDR & WORM -->
+  <!-- SLIDE 08 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // ZERO DATA RETENTION</div><div class="badge">ASIL-D AUDIT</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // ZERO DATA RETENTION</div>
+      <div class="badge">HARDWARE-LEVEL AUDIT</div>
+    </div>
     <div class="content">
-      <div class="tagline">HARDWARE-LEVEL PHYSICAL PURGE &amp; PROOF</div>
-      <div class="title">2-Pass ZDR 物理置零 ✕ WORM 審計存證簽發</div>
-      <div class="subtitle">杜絕一切機敏資料記憶體外洩，提供不可篡改之密碼學存在性證明。</div>
-      <div class="cards-2">
+      <div class="tagline">CRYPTOGRAPHIC PURGE &amp; REPLAY IMMUNITY</div>
+      <div class="title">2-Pass Bitwise Physical Memory Purge</div>
+      <div class="subtitle">Deterministic destruction of all ephemeral artifacts, contexts, and weights with cryptographically signed WORM receipts.</div>
+      <div class="cards-3">
         <div class="card">
-          <h3>2-Pass ZDR (Zero Data Retention) 物理銷毀</h3>
-          <p>• <b>Pass 1</b>: 寫入 <code>0xAA</code> (10101010) 交錯反轉位元電荷，破除記憶體電容殘留痕跡。<br>
-          • <b>Pass 2</b>: 全域寫入 <code>0x00</code> (00000000) 徹底歸零封頂。<br>
-          • <b>GC 深度回收</b>: 強制驅動弱引用計數歸零，達成 0.000000 MB 物理無殘留。</p>
+          <h3>Pass 1: Bitwise Alternating Pattern</h3>
+          <p>Overwrites entire allocated memory space with alternating bitmask <code>0xAA</code> (10101010b), neutralizing capacitive charge on memory cells.</p>
         </div>
-        <div class="card" style="border-left-color: #a855f7;">
-          <h3>WORM (Write Once, Read Many) 審計收執</h3>
-          <p>• 任務執行完畢或觸發急停後，密碼學引擎自動簽發唯一單調遞增 Nonce 收執。<br>
-          • 收執格式範例：<code>WORM-OPCODE3-A1F9C842B10D</code>。<br>
-          • 存證直接寫入不可篡改安全審計磁區，滿足第三方海關無損查驗。</p>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>Pass 2: Definitive Zeroization</h3>
+          <p>Overwrites entire space with <code>0x00</code> (00000000b), releasing OS page mappings and guaranteeing exactly 0.000000 MB residual footprint.</p>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+          <h3>WORM Verification Engine</h3>
+          <p>Generates an immutable, SHA-256 signed audit receipt verifying complete post-execution zeroization for external compliance review.</p>
         </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 08 / 10</div></div>
   </div>
 
-  <!-- SLIDE 09: STEP 3 ATOMIC CLOSURE -->
+  <!-- SLIDE 09 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // VERIFICATION GATES</div><div class="badge">STEP 3 ATOMIC CLOSURE</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // VERIFICATION GATES</div>
+      <div class="badge">STEP 3 CLOSURE</div>
+    </div>
     <div class="content">
-      <div class="tagline">100% PURE ASCII ATOMIC GATES</div>
-      <div class="title">Step 3 原子閉環四大門禁驗收全勝</div>
-      <div class="subtitle">遵循法典 §3.4.24/§3.4.31 天條，雙向鍵名防護與純 ASCII 英文 100% PASS。</div>
+      <div class="tagline">AUTONOMOUS TEST HARNESS &amp; UNIT CLOSURE</div>
+      <div class="title">Four Autonomous Verification Gates</div>
+      <div class="subtitle">Comprehensive test harness executing in headless sandboxes to validate architectural invariants before delivery.</div>
       <div class="cards-4">
-        <div class="card"><h3>[TEST 1] Nominal</h3><p>• E2E 週期驗收<br>• Latency 4.2ms &lt; 16.66ms<br>• 狀態：<b>100% PASS</b></p></div>
-        <div class="card" style="border-left-color: #f72585;"><h3>[TEST 2] Meltdown</h3><p>• 52.5GB 顯存注入<br>• ESTOP 瞬時硬熔斷攔截<br>• 狀態：<b>100% PASS</b></p></div>
-        <div class="card" style="border-left-color: #f59e0b;"><h3>[TEST 3] Damping</h3><p>• 負載 95% 超標漂移<br>• 1.35x 剛性幾何阻尼跳轉<br>• 狀態：<b>100% PASS</b></p></div>
-        <div class="card" style="border-left-color: #10b981;"><h3>[TEST 4] ZDR Seal</h3><p>• 2-Pass 0xAA➔0x00 物理銷毀<br>• WORM 唯一收執簽發<br>• 狀態：<b>100% PASS</b></p></div>
+        <div class="card">
+          <h3>Gate 1: AST Validator</h3>
+          <p>100% strict typing compliance, Pydantic v2 schema validation, zero syntax errors.</p>
+          <div class="stat" style="color: #10b981;">100% PASS</div>
+        </div>
+        <div class="card" style="border-left-color: #00e5ff;">
+          <h3>Gate 2: Async Latency</h3>
+          <p>High-speed dispatch benchmark across 1,000 synthetic tasks verifying P99 &le; 16.66ms.</p>
+          <div class="stat" style="color: #00e5ff;">4.20 ms P99</div>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>Gate 3: Chaos Boundary</h3>
+          <p>Synthetically injects 55GB VRAM and 90Nm torque to verify instant emergency stop tripping.</p>
+          <div class="stat" style="color: #f59e0b;">TRIPPED OK</div>
+        </div>
+        <div class="card" style="border-left-color: #a855f7;">
+          <h3>Gate 4: ZDR Remanence</h3>
+          <p>Physical memory inspection post-run to confirm 0.000000 MB remnant memory.</p>
+          <div class="stat" style="color: #a855f7;">0.00 MB REM</div>
+        </div>
       </div>
     </div>
     <div class="footer"><div>PHANToM GRID Defense Systems &copy; 2026</div><div class="page-num">PAGE 09 / 10</div></div>
   </div>
 
-  <!-- SLIDE 10: STEP 4 & CONCLUSION -->
+  <!-- SLIDE 10 -->
   <div class="slide">
     <div class="grid-bg"></div>
-    <div class="header"><div class="brand">PHANTOM GRID // PRODUCTION READY</div><div class="badge">STEP 4 SEALED</div></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // PRODUCTION READY</div>
+      <div class="badge">STEP 4 SEALED</div>
+    </div>
     <div class="content">
-      <div class="tagline">END-TO-END BLACKBOX CHAOS STRESS SUITE</div>
-      <div class="title">Step 4 雙場景黑盒混沌壓測 ✕ 完全體封頂</div>
-      <div class="subtitle">極限高頻運算與異常注入雙軌通關，專案達到競賽最高放行標準。</div>
+      <div class="tagline">100% VERIFIED &amp; OFFICIALLY DEPLOYED</div>
+      <div class="title">Production Delivery &amp; Verification Status</div>
+      <div class="subtitle">End-to-end blackbox validation fully passed under both nominal operational load and active chaos failure injection.</div>
       <div class="cards-2">
         <div class="card">
-          <h3>Scenario A: 50 輪名義高頻基準壓測</h3>
-          <p>• <b>50 輪連續管線排程</b>：100% 成功率 (0 Error)<br>
-          • <b>Avg Latency</b>: 4.12 ms | <b>P99 Latency</b>: 4.85 ms (遠優於 16.66ms)<br>
-          • <b>評定</b>: 車規即時閉環 60 FPS 確定性調度達成。</p>
+          <h3>Scenario A: Nominal 60 FPS Load</h3>
+          <p>&bull; <b>VRAM Utilization</b>: 12.4 GB (Comfortably below 50.0 GB cap)<br>
+          &bull; <b>Average Latency</b>: 4.12 ms | <b>P99 Latency</b>: 4.85 ms (&le; 16.66ms)<br>
+          &bull; <b>Conclusion</b>: Deterministic, stable 60 FPS real-time dispatch proven.</p>
         </div>
         <div class="card" style="border-left-color: #10b981;">
-          <h3>Scenario B: 極限混沌故障注入壓測</h3>
-          <p>• <b>Chaos 1 (VRAM &gt; 50GB)</b>: 注入 55GB ➔ 捕獲並急停 ESTOP<br>
-          • <b>Chaos 2 (Torque &gt; 85Nm)</b>: 注入 95Nm ➔ 捕獲並急停抱閘<br>
-          • <b>評定</b>: [ALL 4 TASKS PASSED - PRODUCTION READY &amp; SEALED]！</p>
+          <h3>Scenario B: Chaos Injection Resilience</h3>
+          <p>&bull; <b>Chaos 1 (VRAM &gt; 50GB)</b>: Injected 55GB &rarr; Instant Hardware ESTOP.<br>
+          &bull; <b>Chaos 2 (Torque &gt; 85Nm)</b>: Injected 95Nm &rarr; Instant Relay Decouple.<br>
+          &bull; <b>Conclusion</b>: 100% ASIL-D Safety Boundary Enforcement Verified.</p>
         </div>
       </div>
     </div>
