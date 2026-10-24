@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    actor Commander as Supreme Commander / Task Dispatcher
+    participant Ingress as Ingress Sentinel
+    participant Core as Master Orchestrator
+    participant Swarm as Multi-Agent Swarm
+    participant Safety as ASIL-D Safety Watchdog
+    participant Vault as 2-Pass ZDR & WORM Vault
+
+    Commander->>Ingress: Submit Task Spec (E2E Mission)
+    Ingress->>Ingress: Verify VRAM (<50GB) & Ingress Nonce
+    Ingress->>Core: Forward Sanitized Pipeline Request
+    Core->>Swarm: Dispatch DAG Task to Planner / Executor
+    Swarm->>Swarm: Execute Pipeline (P99 <= 16.66ms)
+    Swarm->>Core: Return Synthesis Artifacts
+    Core->>Safety: Evaluate Damping & Dynamic Load
+    alt Load > 85% or Overload
+        Safety->>Core: Trip 1.35x Damping Scalar
+    else Load Nominal
+        Safety->>Core: Nominal Scalar 1.0x
+    end
+    Core->>Vault: Trigger 2-Pass ZDR Physical Purge
+    Vault-->>Commander: Issue Immutable WORM Receipt (PASS)

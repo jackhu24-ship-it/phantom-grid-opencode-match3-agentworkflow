@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> STATE_IDLE: System Boots & Hardware Check
+    STATE_IDLE --> STATE_DISPATCH: Ingress Verified (VRAM < 50GB)
+    STATE_DISPATCH --> STATE_EXECUTION: DAG Graph Instantiated
+    state STATE_EXECUTION {
+        [*] --> Sub_Planning
+        Sub_Planning --> Sub_Executing
+        Sub_Executing --> Sub_Auditing
+        Sub_Auditing --> [*]
+    }
+    STATE_EXECUTION --> STATE_DAMPED: High Load / Jitter Detected (Damping = 1.35x)
+    STATE_DAMPED --> STATE_EXECUTION: Nominal Stabilization
+    STATE_EXECUTION --> STATE_ESTOP: Overload (>85Nm / >50GB) Meltdown
+    STATE_EXECUTION --> STATE_ZDR_PURGE: Execution Succeeded
+    STATE_ESTOP --> STATE_ZDR_PURGE: Emergency Brake & Zeroize
+    STATE_ZDR_PURGE --> [*]: WORM Receipt Signed & Memory Zeroed

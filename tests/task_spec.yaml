@@ -1,0 +1,6 @@
+task_id: 'MATCH3-E2E-FULL'
+vram_limit_gb: 50.0
+joint_torque_limit_nm: 85.0
+p99_latency_budget_ms: 16.66
+nominal_runs: 50
+chaos_runs: 10

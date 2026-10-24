@@ -1,0 +1,20 @@
+graph TD
+    subgraph IngressLayer ["Ingress & Gateway Layer"]
+        CLI["User CLI / Task Ingress"] --> SEC_CHK["Security Nonce & VRAM Pre-check"]
+    end
+    subgraph CoreBrain ["Level 3 Nexus Master Brain"]
+        SEC_CHK --> ORCH["Nexus Master Orchestrator"]
+        ORCH --> SM["FSM State Machine (Phase 1-4)"]
+        ORCH --> CTX["Isolated Context Manager"]
+    end
+    subgraph AgentSwarm ["Level 2 Multi-Agent Swarm"]
+        CTX --> PLAN["Planner Agent (DAG Decomposition)"]
+        PLAN --> EXEC["Executor Agent (Low-latency Dispatch)"]
+        EXEC --> REV["Reviewer Agent (Audit & Verification)"]
+        REV --> SEC["Security Agent (FTTI & Boundary Guard)"]
+    end
+    subgraph SafeGuard ["Safety & Physical Layer"]
+        SEC --> DAMP["1.35x Geometric Damping Controller"]
+        DAMP --> ZDR["2-Pass ZDR (0xAA->0x00) Memory Purger"]
+        ZDR --> WORM["WORM Audit Receipt Engine"]
+    end

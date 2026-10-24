@@ -1,0 +1,11 @@
+classDiagram
+    class SystemDefenseMatrix {
+        +VRAM_Nominal : <= 32.0 GB
+        +VRAM_Warning : 45.0 GB
+        +VRAM_Hard_Meltdown : >= 50.0 GB (ASIL-D)
+        +E2E_Latency_Budget : <= 16.66 ms (60 FPS)
+        +Joint_Torque_Limit : 85.0 Nm (E-STOP)
+        +Damping_Scalar : 1.35x (Active Trigger)
+        +ZDR_Purge_Pass : 2-Pass (0xAA -> 0x00)
+        +WORM_Receipt : Immutable SHA256 Nonce
+    }

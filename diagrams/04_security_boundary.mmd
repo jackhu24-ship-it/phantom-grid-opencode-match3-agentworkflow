@@ -1,0 +1,18 @@
+graph LR
+    subgraph NominalZone ["Zone 0: Nominal Operating Zone"]
+        N1["VRAM: 0 - 45 GB"]
+        N2["Cycle Time: <= 16.66 ms"]
+        N3["Damping: 1.0x"]
+    end
+    subgraph CautionZone ["Zone 1: Dynamic Throttle Zone"]
+        C1["VRAM: 45 - 50 GB"]
+        C2["Damping Jump: 1.35x Active"]
+        C3["Queue Degraded Mode"]
+    end
+    subgraph HardMeltdownZone ["Zone 2: ASIL-D Meltdown E-STOP"]
+        M1["VRAM: >= 50.0 GB (Hard Break)"]
+        M2["FTTI: <= 50 ms Immediate Lock"]
+        M3["ZDR 2-Pass Bitwise Overwrite"]
+    end
+    NominalZone --> CautionZone
+    CautionZone --> HardMeltdownZone

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: #080a10;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #ffffff;
+  }
+  .slide {
+    width: 1920px; height: 1080px; page-break-after: always;
+    padding: 80px 120px; display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    background: radial-gradient(circle at 80% 20%, #1a103c 0%, #080a10 70%);
+  }
+  .grid-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+      linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .header {
+    position: relative; z-index: 2; display: flex; justify-content: space-between;
+    border-bottom: 2px solid rgba(0, 229, 255, 0.3); padding-bottom: 24px;
+  }
+  .brand { font-size: 24px; font-weight: 800; color: #00e5ff; letter-spacing: 4px; }
+  .badge { background: rgba(0, 229, 255, 0.15); border: 1px solid #00e5ff; padding: 6px 20px; border-radius: 16px; font-size: 16px; color: #00e5ff; }
+  .body-content { position: relative; z-index: 2; margin-top: 40px; }
+  .title { font-size: 64px; font-weight: 900; color: #ffffff; line-height: 1.2; }
+  .subtitle { font-size: 28px; color: #94a3b8; margin-top: 20px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+  .card {
+    background: rgba(13, 17, 36, 0.85); border: 1px solid rgba(0, 229, 255, 0.2);
+    border-left: 6px solid #00e5ff; padding: 30px; border-radius: 8px;
+  }
+  .card h3 { font-size: 24px; color: #00e5ff; margin-bottom: 12px; }
+  .card p { font-size: 18px; color: #cbd5e1; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="grid-bg"></div>
+    <div class="header">
+      <div class="brand">PHANTOM GRID // EXECUTIVE PRESENTATION</div>
+      <div class="badge">RULE 65 COMPLIANT</div>
+    </div>
+    <div class="body-content">
+      <div class="title">AUTONOMOUS MULTI-AGENT<br>WORKFLOW NEXUS</div>
+      <div class="subtitle">OpenCode 2026 Match 3 :: ASIL-D Deterministic Orchestration System</div>
+      <div class="cards">
+        <div class="card">
+          <h3>Dual-Track Core</h3>
+          <p>Microsecond asynchronous pipeline engine paired with ASIL-D zero-brain-split state machine.</p>
+        </div>
+        <div class="card" style="border-left-color: #f59e0b;">
+          <h3>1.35x Damping</h3>
+          <p>Geometric load-adaptive safety controller instantly absorbs pipeline bottlenecks and joint jitter.</p>
+        </div>
+        <div class="card" style="border-left-color: #a855f7;">
+          <h3>2-Pass ZDR</h3>
+          <p>Bitwise physical zeroization (0xAA ➔ 0x00) guaranteeing zero remnant data with WORM receipts.</p>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; z-index: 2; color: #64748b; font-size: 16px;">
+      PHANToM GRID Defense Systems &copy; 2026 All Rights Reserved
+    </div>
+  </div>
+</body>
+</html>
