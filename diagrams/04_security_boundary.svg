@@ -1,13 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
-  <rect width="100%" height="100%" fill="#0d1117"/>
-  <rect x="20" y="20" width="1160" height="760" rx="12" fill="none" stroke="#30363d" stroke-width="2"/>
-  <text x="60" y="80" fill="#58a6ff" font-family="Consolas, monospace" font-size="28" font-weight="bold">04_SECURITY_BOUNDARY</text>
-  <rect x="60" y="140" width="300" height="120" rx="8" fill="#161b22" stroke="#00f5d4" stroke-width="2"/>
-  <text x="210" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">INGRESS GATEWAY</text>
-  <path d="M 360 200 L 460 200" stroke="#00f5d4" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="460" y="140" width="320" height="120" rx="8" fill="#161b22" stroke="#7b2cbf" stroke-width="2"/>
-  <text x="620" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">NEXUS ORCHESTRATOR</text>
-  <path d="M 780 200 L 880 200" stroke="#7b2cbf" stroke-width="3"/>
-  <rect x="880" y="140" width="260" height="120" rx="8" fill="#161b22" stroke="#f72585" stroke-width="2"/>
-  <text x="1010" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">ZDR PURGER</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850" width="1400" height="850">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGrad4)"/>
+  <rect x="25" y="25" width="1350" height="800" rx="16" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Title -->
+  <rect x="50" y="45" width="1300" height="75" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="80" y="85" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial" font-size="24" font-weight="900">PHANToM GRID // THREE-ZONE SECURITY BOUNDARY &amp; MELTDOWN GATES (FIGURE 4)</text>
+  <text x="80" y="108" fill="#ef4444" font-family="Consolas, monospace" font-size="14">HARD VRAM CEILINGS, DYNAMIC THROTTLES &amp; ASIL-D FAIL-SAFE TRIP POINTS</text>
+
+  <!-- ZONE 0: Nominal Zone -->
+  <rect x="60" y="160" width="380" height="620" rx="14" fill="#06281e" stroke="#10b981" stroke-width="2"/>
+  <rect x="80" y="180" width="340" height="50" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="250" y="212" fill="#34d399" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">ZONE 0: NOMINAL</text>
+  <text x="250" y="260" fill="#a7f3d0" font-family="Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">All Operations Nominal</text>
+
+  <rect x="80" y="290" width="340" height="90" rx="8" fill="#0f3d2e"/>
+  <text x="100" y="320" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">VRAM FOOTPRINT</text>
+  <text x="100" y="355" fill="#10b981" font-family="Consolas, monospace" font-size="24" font-weight="bold">&lt;= 45.0 GB</text>
+
+  <rect x="80" y="400" width="340" height="90" rx="8" fill="#0f3d2e"/>
+  <text x="100" y="430" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">E2E CYCLE TIME</text>
+  <text x="100" y="465" fill="#10b981" font-family="Consolas, monospace" font-size="24" font-weight="bold">&lt;= 16.66 ms</text>
+
+  <rect x="80" y="510" width="340" height="90" rx="8" fill="#0f3d2e"/>
+  <text x="100" y="540" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">DAMPING SCALAR</text>
+  <text x="100" y="575" fill="#10b981" font-family="Consolas, monospace" font-size="24" font-weight="bold">1.00 x</text>
+
+  <rect x="80" y="630" width="340" height="120" rx="8" fill="#082017" stroke="#10b981" stroke-width="1"/>
+  <text x="100" y="660" fill="#34d399" font-family="Arial" font-size="14" font-weight="bold">Safety Action:</text>
+  <text x="100" y="685" fill="#e2e8f0" font-family="Arial" font-size="13">High throughput async dispatch</text>
+  <text x="100" y="708" fill="#e2e8f0" font-family="Arial" font-size="13">Continuous streaming pipeline</text>
+  <text x="100" y="730" fill="#10b981" font-family="Consolas, monospace" font-size="12">[STATUS: 100% HEALTHY]</text>
+
+  <!-- Arrow Zone 0 -> 1 -->
+  <path d="M 450 470 L 490 470" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4,4"/>
+
+  <!-- ZONE 1: Caution Throttle Zone -->
+  <rect x="500" y="160" width="380" height="620" rx="14" fill="#2d1c03" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="520" y="180" width="340" height="50" rx="8" fill="#451a03" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="690" y="212" fill="#fbbf24" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">ZONE 1: THROTTLE</text>
+  <text x="690" y="260" fill="#fde68a" font-family="Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">Spike &amp; Jitter Suppression</text>
+
+  <rect x="520" y="290" width="340" height="90" rx="8" fill="#3d2406"/>
+  <text x="540" y="320" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">VRAM WARNING</text>
+  <text x="540" y="355" fill="#f59e0b" font-family="Consolas, monospace" font-size="24" font-weight="bold">45.0 - 50.0 GB</text>
+
+  <rect x="520" y="400" width="340" height="90" rx="8" fill="#3d2406"/>
+  <text x="540" y="430" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">LOAD SURGE SENSOR</text>
+  <text x="540" y="465" fill="#f59e0b" font-family="Consolas, monospace" font-size="24" font-weight="bold">&gt; 85.0% Load</text>
+
+  <rect x="520" y="510" width="340" height="90" rx="8" fill="#3d2406"/>
+  <text x="540" y="540" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">DAMPING JUMP</text>
+  <text x="540" y="575" fill="#f59e0b" font-family="Consolas, monospace" font-size="24" font-weight="bold">1.35 x Active</text>
+
+  <rect x="520" y="630" width="340" height="120" rx="8" fill="#241302" stroke="#f59e0b" stroke-width="1"/>
+  <text x="540" y="660" fill="#fbbf24" font-family="Arial" font-size="14" font-weight="bold">Safety Action:</text>
+  <text x="540" y="685" fill="#e2e8f0" font-family="Arial" font-size="13">Geodesic filter dampens jitter</text>
+  <text x="540" y="708" fill="#e2e8f0" font-family="Arial" font-size="13">Throttle ingestion queue</text>
+  <text x="540" y="730" fill="#f59e0b" font-family="Consolas, monospace" font-size="12">[STATUS: DAMPING ACTIVE]</text>
+
+  <!-- Arrow Zone 1 -> 2 -->
+  <path d="M 890 470 L 930 470" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>
+
+  <!-- ZONE 2: Meltdown Hard E-STOP -->
+  <rect x="940" y="160" width="390" height="620" rx="14" fill="#360808" stroke="#ef4444" stroke-width="2.5"/>
+  <rect x="960" y="180" width="350" height="50" rx="8" fill="#5c0f0f" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="1135" y="212" fill="#f87171" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">ZONE 2: ASIL-D E-STOP</text>
+  <text x="1135" y="260" fill="#fca5a5" font-family="Consolas, monospace" font-size="14" font-weight="bold" text-anchor="middle">Emergency Physical Trip</text>
+
+  <rect x="960" y="290" width="350" height="90" rx="8" fill="#4a0d0d"/>
+  <text x="980" y="320" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">HARD VRAM LIMIT</text>
+  <text x="980" y="355" fill="#ef4444" font-family="Consolas, monospace" font-size="24" font-weight="bold">&gt;= 50.0 GB</text>
+
+  <rect x="960" y="400" width="350" height="90" rx="8" fill="#4a0d0d"/>
+  <text x="980" y="430" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">FAULT RESPONSE (FTTI)</text>
+  <text x="980" y="465" fill="#ef4444" font-family="Consolas, monospace" font-size="24" font-weight="bold">&lt;= 50 ms</text>
+
+  <rect x="960" y="510" width="350" height="90" rx="8" fill="#4a0d0d"/>
+  <text x="980" y="540" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">BITWISE MEMORY PURGE</text>
+  <text x="980" y="575" fill="#ef4444" font-family="Consolas, monospace" font-size="24" font-weight="bold">2-Pass (0xAA-&gt;0x00)</text>
+
+  <rect x="960" y="630" width="350" height="120" rx="8" fill="#2b0505" stroke="#ef4444" stroke-width="1"/>
+  <text x="980" y="660" fill="#f87171" font-family="Arial" font-size="14" font-weight="bold">Safety Action:</text>
+  <text x="980" y="685" fill="#e2e8f0" font-family="Arial" font-size="13">Immediate hardware shutdown</text>
+  <text x="980" y="708" fill="#e2e8f0" font-family="Arial" font-size="13">Zero memory residue scrub</text>
+  <text x="980" y="730" fill="#ef4444" font-family="Consolas, monospace" font-size="12">[STATUS: EMERGENCY SAFE]</text>
 </svg>

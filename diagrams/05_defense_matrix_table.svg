@@ -1,13 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
-  <rect width="100%" height="100%" fill="#0d1117"/>
-  <rect x="20" y="20" width="1160" height="760" rx="12" fill="none" stroke="#30363d" stroke-width="2"/>
-  <text x="60" y="80" fill="#58a6ff" font-family="Consolas, monospace" font-size="28" font-weight="bold">05_DEFENSE_MATRIX_TABLE</text>
-  <rect x="60" y="140" width="300" height="120" rx="8" fill="#161b22" stroke="#00f5d4" stroke-width="2"/>
-  <text x="210" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">INGRESS GATEWAY</text>
-  <path d="M 360 200 L 460 200" stroke="#00f5d4" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="460" y="140" width="320" height="120" rx="8" fill="#161b22" stroke="#7b2cbf" stroke-width="2"/>
-  <text x="620" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">NEXUS ORCHESTRATOR</text>
-  <path d="M 780 200 L 880 200" stroke="#7b2cbf" stroke-width="3"/>
-  <rect x="880" y="140" width="260" height="120" rx="8" fill="#161b22" stroke="#f72585" stroke-width="2"/>
-  <text x="1010" y="205" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">ZDR PURGER</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850" width="1400" height="850">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGrad5)"/>
+  <rect x="25" y="25" width="1350" height="800" rx="16" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Title -->
+  <rect x="50" y="45" width="1300" height="75" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  <text x="80" y="85" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial" font-size="24" font-weight="900">PHANToM GRID // SYSTEM DEFENSE MATRIX &amp; RESOURCE CONTRACT (TABLE 1)</text>
+  <text x="80" y="108" fill="#10b981" font-family="Consolas, monospace" font-size="14">EXACT MACHINE-READABLE INVARIANTS, THRESHOLDS &amp; ASIL-D ENFORCEMENT</text>
+
+  <!-- Table Container -->
+  <rect x="50" y="145" width="1300" height="650" rx="12" fill="#0b1324" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Table Header -->
+  <rect x="50" y="145" width="1300" height="60" rx="12" fill="#1e293b"/>
+  <text x="80" y="182" fill="#38bdf8" font-family="Arial" font-size="15" font-weight="bold">SYSTEM METRIC / PARAMETER</text>
+  <text x="420" y="182" fill="#10b981" font-family="Arial" font-size="15" font-weight="bold">NOMINAL SAFE ZONE</text>
+  <text x="680" y="182" fill="#f59e0b" font-family="Arial" font-size="15" font-weight="bold">WARNING THRESHOLD</text>
+  <text x="940" y="182" fill="#ef4444" font-family="Arial" font-size="15" font-weight="bold">ASIL-D HARD MELTDOWN</text>
+  <text x="1190" y="182" fill="#a855f7" font-family="Arial" font-size="15" font-weight="bold">ENFORCEMENT</text>
+
+  <!-- Divider lines -->
+  <line x1="50" y1="205" x2="1350" y2="205" stroke="#334155" stroke-width="2"/>
+
+  <!-- Row 1: Global VRAM -->
+  <rect x="50" y="210" width="1300" height="85" fill="#0f172a"/>
+  <text x="80" y="245" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">1. Global VRAM Overhead</text>
+  <text x="80" y="270" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">GPU/Host Shared Memory Allocation</text>
+  <text x="420" y="258" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">&lt;= 32.0 GB</text>
+  <text x="680" y="258" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">45.0 GB</text>
+  <text x="940" y="258" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">&gt;= 50.0 GB (Hard E-STOP)</text>
+  <text x="1190" y="258" fill="#c084fc" font-family="Arial" font-size="13">Hardware Watchdog</text>
+  <line x1="50" y1="295" x2="1350" y2="295" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 2: Latency -->
+  <rect x="50" y="300" width="1300" height="85" fill="#09101f"/>
+  <text x="80" y="335" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">2. E2E Cycle Latency</text>
+  <text x="80" y="360" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">60 FPS Real-Time Control Loop</text>
+  <text x="420" y="348" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">&lt;= 16.66 ms</text>
+  <text x="680" y="348" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">&gt; 25.0 ms</text>
+  <text x="940" y="348" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">&gt; 50.0 ms (FTTI Breach)</text>
+  <text x="1190" y="348" fill="#c084fc" font-family="Arial" font-size="13">Async Kernel Dispatch</text>
+  <line x1="50" y1="385" x2="1350" y2="385" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 3: Damping -->
+  <rect x="50" y="390" width="1300" height="85" fill="#0f172a"/>
+  <text x="80" y="425" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">3. Geodesic Damping Factor</text>
+  <text x="80" y="450" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">Harmonic Stabilization against Spikes</text>
+  <text x="420" y="438" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">1.00 x (Nominal)</text>
+  <text x="680" y="438" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">Surge Detected</text>
+  <text x="940" y="438" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">1.35 x Geodesic Jump</text>
+  <text x="1190" y="438" fill="#c084fc" font-family="Arial" font-size="13">Non-linear Limiter</text>
+  <line x1="50" y1="475" x2="1350" y2="475" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 4: Joint Torque -->
+  <rect x="50" y="480" width="1300" height="85" fill="#09101f"/>
+  <text x="80" y="515" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">4. Physical Joint Torque</text>
+  <text x="80" y="540" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">Embodied Actuator Safety Ceiling</text>
+  <text x="420" y="528" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">&lt;= 60.0 Nm</text>
+  <text x="680" y="528" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">75.0 Nm</text>
+  <text x="940" y="528" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">&gt;= 85.0 Nm (E-STOP)</text>
+  <text x="1190" y="528" fill="#c084fc" font-family="Arial" font-size="13">Magnetic Brake</text>
+  <line x1="50" y1="565" x2="1350" y2="565" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 5: Memory Residue -->
+  <rect x="50" y="570" width="1300" height="85" fill="#0f172a"/>
+  <text x="80" y="605" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">5. Memory Residue (ZDR)</text>
+  <text x="80" y="630" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">Zero-Data-Residue Cryptographic Wipe</text>
+  <text x="420" y="618" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">0.000000 MB</text>
+  <text x="680" y="618" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">Leak Flagged</text>
+  <text x="940" y="618" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">&gt; 0.00 MB Disallowed</text>
+  <text x="1190" y="618" fill="#c084fc" font-family="Arial" font-size="13">2-Pass Bitwise Wipe</text>
+  <line x1="50" y1="655" x2="1350" y2="655" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Row 6: Audit Traceability -->
+  <rect x="50" y="660" width="1300" height="85" fill="#09101f"/>
+  <text x="80" y="695" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">6. Audit Traceability</text>
+  <text x="80" y="720" fill="#94a3b8" font-family="Consolas, monospace" font-size="12">Immutable WORM Receipt Verification</text>
+  <text x="420" y="708" fill="#34d399" font-family="Consolas, monospace" font-size="15" font-weight="bold">Immutable Nonce</text>
+  <text x="680" y="708" fill="#fbbf24" font-family="Consolas, monospace" font-size="15" font-weight="bold">SHA-256 Chained</text>
+  <text x="940" y="708" fill="#f87171" font-family="Consolas, monospace" font-size="15" font-weight="bold">Tamper Violation</text>
+  <text x="1190" y="708" fill="#c084fc" font-family="Arial" font-size="13">Git Commit + WORM</text>
 </svg>
