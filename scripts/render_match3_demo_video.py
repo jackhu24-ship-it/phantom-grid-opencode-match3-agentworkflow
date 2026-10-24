@@ -55,7 +55,7 @@ ACTS = [
             "[INGRESS] Initializing OpenCode Match 3 Autonomous Agent Workflow Nexus...",
             "[SYSTEM] Detecting multi-agent coordination topologies across heterogeneous nodes...",
             "[SRE GUARD] Enforcing automotive-grade ASIL-D deterministic transition bounds...",
-            "[BASELINE] Nominal baseline established: Memory footprint = 12.4 GB / 50.0 GB ceiling."
+            "[BASELINE] Nominal baseline: Memory footprint = 12.4 GB / 50.0 GB ceiling."
         ],
         "active_card_idx": 0,
         "base_metrics": {"lat": 0.56, "load": "40.0%", "fsm": "SHELL_INGRESS"}
@@ -168,7 +168,7 @@ ACTS = [
             }
         ],
         "log_stream": [
-            "[RELEASE] GitHub Repo: https://github.com/jackhu24-ship-it/phantom-grid-opencode-match3-agentworkflow",
+            "[RELEASE] Repo: jackhu24-ship-it/phantom-grid-opencode-match3-agentworkflow",
             "[LIVE DEMO] GitHub Pages: Zero-cold-start web terminal online (HTTP 200 OK)",
             "[REPRODUCE] pytest tests/test_workflow_closure.py -v (All 4 gates passed in 0.38s)",
             "OFFICIAL VERDICT: [ ALL 5 ACTS VERIFIED - PRODUCTION READY & RATIFIED ]"
@@ -254,24 +254,25 @@ def render_frame(act_data: dict, act_num: int, total_acts: int, cur_sent_idx: in
 
     # Left Container: Dynamic Telemetry Terminal
     tui_x1, tui_y1 = 40, 135
-    tui_x2, tui_y2 = 1260, 840
+    tui_x2, tui_y2 = 1270, 825
     draw.rectangle([tui_x1, tui_y1, tui_x2, tui_y2], fill=(6, 9, 16), outline=(56, 189, 248), width=2)
-    draw.rectangle([tui_x1, tui_y1, tui_x2, tui_y1 + 50], fill=(15, 23, 42))
-    draw.text((60, tui_y1 + 14), f"TERMINAL TELEMETRY & MULTI-AGENT LOGS :: [ACT {act_num}/{total_acts}]", font=get_font(20), fill=(0, 229, 255))
+    draw.rectangle([tui_x1, tui_y1, tui_x2, tui_y1 + 55], fill=(15, 23, 42))
+    # 終端機頂部青色標題 (改為 30pt)
+    draw.text((60, tui_y1 + 12), f"TERMINAL TELEMETRY & MULTI-AGENT LOGS :: [ACT {act_num}/{total_acts}]", font=get_font(30), fill=(0, 229, 255))
 
-    # Real-time log progression synced with sentence
+    # Real-time log progression synced with sentence (白字改為 25pt)
     active_log_idx = min(cur_sent_idx, len(act_data["log_stream"]) - 1)
     for i in range(active_log_idx + 1):
         is_highlight = (i == active_log_idx)
         if is_highlight:
             # Highlight background bar
-            draw.rectangle([tui_x1 + 10, tui_y1 + 70 + i * 55, tui_x2 - 10, tui_y1 + 115 + i * 55], fill=(16, 32, 55))
+            draw.rectangle([tui_x1 + 10, tui_y1 + 75 + i * 70, tui_x2 - 10, tui_y1 + 130 + i * 70], fill=(16, 32, 55))
             # Dynamic vector pointer
-            draw.polygon([(tui_x1 + 15, tui_y1 + 92 + i * 55), (tui_x1 + 25, tui_y1 + 84 + i * 55), (tui_x1 + 25, tui_y1 + 100 + i * 55)], fill=(0, 229, 255))
+            draw.polygon([(tui_x1 + 15, tui_y1 + 102 + i * 70), (tui_x1 + 26, tui_y1 + 92 + i * 70), (tui_x1 + 26, tui_y1 + 112 + i * 70)], fill=(0, 229, 255))
             col = (255, 255, 255)
         else:
             col = (148, 163, 184)
-        draw.text((75, tui_y1 + 78 + i * 55), act_data["log_stream"][i], font=get_mono_font(17), fill=col)
+        draw.text((75, tui_y1 + 87 + i * 70), act_data["log_stream"][i], font=get_mono_font(25), fill=col)
 
     # Right Container: Telemetry Cards
     right_x1, right_x2 = 1290, WIDTH - 40
