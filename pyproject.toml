@@ -1,0 +1,9 @@
+[project]
+name = "phantom-grid-match3-agent-workflow"
+version = "1.0.0"
+description = "PHANToM GRID :: OpenCode Match 3 Dual-Track Autonomous Agent Workflow Nexus"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
